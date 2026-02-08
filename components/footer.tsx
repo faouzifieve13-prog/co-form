@@ -1,0 +1,97 @@
+import Link from "next/link"
+import Image from "next/image"
+import { Linkedin } from "lucide-react"
+
+export function Footer() {
+  return (
+    <footer className="bg-[#F9F9F9]">
+      {/* Main content - 3 columns */}
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="py-10 lg:py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Left - Adresse */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
+              Adresse
+            </p>
+            <p className="text-foreground font-medium leading-relaxed">
+              {"34 R\u00e9sidence Lanclos"}
+            </p>
+            <p className="text-foreground font-medium">
+              {"31380 Montastruc-la-Conseill\u00e8re"}
+            </p>
+            <div className="mt-4 space-y-1.5">
+              <Link href="tel:+33611392830" className="block text-sm text-muted-foreground hover:text-[#78B42B] transition-colors">
+                06 11 39 28 30
+              </Link>
+              <Link href="mailto:contact@co-form.fr" className="block text-sm text-muted-foreground hover:text-[#78B42B] transition-colors">
+                contact@co-form.fr
+              </Link>
+            </div>
+          </div>
+
+          {/* Center - Horaires */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
+              Horaires
+            </p>
+            <p className="text-foreground font-medium">
+              Lundi &ndash; Vendredi
+            </p>
+            <p className="text-2xl font-serif text-foreground mt-2">
+              09h &ndash; 18h
+            </p>
+            <p className="text-sm text-muted-foreground mt-3">
+              {"Ferm\u00e9 le week-end et les jours f\u00e9ri\u00e9s"}
+            </p>
+          </div>
+
+          {/* Right - LinkedIn */}
+          <div className="flex flex-col">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
+              Suivez-nous
+            </p>
+            <p className="text-sm text-muted-foreground mb-6">
+              {"Retrouvez l\u2019actualit\u00e9 juridique et nos conseils CSE sur LinkedIn."}
+            </p>
+            <Link
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#B5345A] text-white hover:bg-[#B5345A]/90 transition-all duration-300 shadow-md shadow-[#B5345A]/15 self-start"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-4 w-4" />
+              <span className="text-sm font-medium">LinkedIn</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom - Legal */}
+      <div className="border-t border-border/60">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link href="/">
+            <Image
+              src="/images/logo-coform.png"
+              alt="CO'FORM - Conseil & Formation"
+              width={120}
+              height={48}
+              className="h-8 w-auto"
+            />
+          </Link>
+          <p className="text-xs text-muted-foreground text-center">
+            {"SIRET 798 064 150 00013 | Organisme de formation n\u00b073310792831 | Agr\u00e9ment DREETS Occitanie"}
+          </p>
+          <div className="flex items-center gap-5">
+            <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              {"Mentions l\u00e9gales"}
+            </Link>
+            <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              CGV
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
