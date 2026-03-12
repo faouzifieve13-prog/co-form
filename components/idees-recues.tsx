@@ -7,26 +7,26 @@ const myths = [
   {
     id: 1,
     color: "#B5345A",
-    myth: "L\u2019anciennet\u00e9 est obligatoire pour acc\u00e9der aux activit\u00e9s du CSE.",
+    myth: "Le critère de l\u2019ancienneté du salarié est obligatoire pour l\u2019attribution des bons d\u2019achats et l\u2019accès aux activités.",
     reality:
-      "La Cour de cassation interdit toute discrimination bas\u00e9e sur l\u2019anciennet\u00e9 pour l\u2019acc\u00e8s aux ASC.",
-    label: "Mythe n\u00b01",
+      "La Cour de cassation interdit toute discrimination basée sur l\u2019ancienneté pour l\u2019accès aux ASC \u2014 arrêt du 3 avril 2024 (n° 22-16.812). L\u2019URSSAF admet la régularisation par les CSE jusqu\u2019au 31/12/2026.",
+    label: "Mythe n°1",
   },
   {
     id: 2,
     color: "#78B42B",
-    myth: "L\u2019employeur d\u00e9cide seul de l\u2019ordre du jour.",
+    myth: "Le président du CSE peut modifier l\u2019ordre du jour de la réunion lors de la séance.",
     reality:
-      "L\u2019ordre du jour est le fruit d\u2019une co-\u00e9laboration obligatoire entre le Pr\u00e9sident et le Secr\u00e9taire.",
-    label: "Mythe n\u00b02",
+      "Faux : une fois l\u2019ordre du jour fixé conjointement par l\u2019employeur et le secrétaire du CSE, il ne peut être modifié par le président du CSE en réunion.",
+    label: "Mythe n°2",
   },
   {
     id: 3,
     color: "#2D2D2D",
-    myth: "Le budget de fonctionnement peut financer les cadeaux de No\u00ebl.",
+    myth: "On peut transférer la totalité de l\u2019excédent du budget de fonctionnement vers celui des activités.",
     reality:
-      "Le budget de fonctionnement est strictement r\u00e9serv\u00e9 \u00e0 l\u2019exercice des missions \u00e9conomiques.",
-    label: "Mythe n\u00b03",
+      "C\u2019est faux. Le CSE ne peut transférer que 10\u00A0% de l\u2019excédent annuel.",
+    label: "Mythe n°3",
   },
 ]
 
@@ -45,9 +45,6 @@ const particles = [
   { x: "35%", y: "70%", size: 4, color: "#2D2D2D", delay: 0.9 },
 ]
 
-// Vertical offsets for asymmetric look
-const offsets = ["md:translate-y-6", "md:-translate-y-8", "md:translate-y-14"]
-
 function MythCircle({
   myth,
   index,
@@ -59,7 +56,7 @@ function MythCircle({
 
   return (
     <motion.div
-      className={`flex justify-center ${offsets[index]}`}
+      className="flex justify-center"
       initial={{ opacity: 0, scale: 0.5, y: 40 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -74,6 +71,7 @@ function MythCircle({
         className="relative cursor-pointer select-none"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => setIsHovered((prev) => !prev)}
         whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 300, damping: 18 }}
       >
@@ -127,8 +125,11 @@ function MythCircle({
                     className="w-1.5 h-1.5 rounded-full animate-pulse"
                     style={{ background: myth.color }}
                   />
-                  <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                  <span className="text-[10px] uppercase tracking-wider text-muted-foreground hidden md:inline">
                     Survolez
+                  </span>
+                  <span className="text-[10px] uppercase tracking-wider text-muted-foreground md:hidden">
+                    Touchez
                   </span>
                 </div>
               </motion.div>
@@ -142,7 +143,7 @@ function MythCircle({
                 transition={{ duration: 0.25 }}
               >
                 <span className="text-sm sm:text-base font-black uppercase tracking-widest text-white">
-                  {"C\u2019EST FAUX"}
+                  C&apos;EST FAUX
                 </span>
                 <div className="w-8 h-0.5 bg-white/40 rounded-full" />
                 <p className="text-xs sm:text-sm leading-relaxed text-white/90">
@@ -197,18 +198,20 @@ export function IdeesRecues() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-sm text-[#78B42B] font-semibold tracking-wide uppercase mb-3">
-            {"D\u00e9cryptage juridique"}
+            Décryptage juridique
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight">
-            {"Mythes vs R\u00e9alit\u00e9s"}
+            Mythes ou Réalités
           </h2>
           <p className="mt-4 text-muted-foreground max-w-lg mx-auto">
-            {"Survolez chaque cercle pour d\u00e9couvrir la v\u00e9rit\u00e9 juridique"}
+            <span className="hidden md:inline">Survolez</span>
+            <span className="md:hidden">Touchez</span>
+            {" "}chaque cercle pour découvrir la bonne réponse juridique
           </p>
         </motion.div>
 
-        {/* Circles - asymmetric */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 items-start">
+        {/* Circles - aligned */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 items-center">
           {myths.map((myth, index) => (
             <MythCircle key={myth.id} myth={myth} index={index} />
           ))}

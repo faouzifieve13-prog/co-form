@@ -1,23 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ShieldCheck, Award, GraduationCap } from "lucide-react"
+import { ShieldCheck, GraduationCap } from "lucide-react"
+import Image from "next/image"
 
 const agrements = [
   {
     icon: ShieldCheck,
     label: "DREETS Occitanie",
-    sublabel: "Agr\u00e9ment r\u00e9gional",
-  },
-  {
-    icon: Award,
-    label: "Qualiopi",
-    sublabel: "Certification qualit\u00e9",
+    sublabel: "Agrément régional",
   },
   {
     icon: GraduationCap,
-    label: "Agr\u00e9ment Formation",
-    sublabel: "N\u00b073310792831",
+    label: "Déclaration d\u2019activité",
+    sublabel: "N°73310792831",
   },
 ]
 
@@ -32,7 +28,7 @@ export function Agrements() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-[0.7rem] text-[#6B6B6B] uppercase tracking-[0.25em] text-center mb-5 font-medium">
-            {"Nos agr\u00e9ments & certifications"}
+            Nos agréments
           </p>
           <div className="rounded-[30px] bg-[#FAFAFA] border border-[#ECECEC] py-8 px-6 sm:px-10">
             <div className="flex flex-col sm:flex-row items-center sm:items-center sm:justify-center divide-y sm:divide-y-0 sm:divide-x divide-[#E0E0E0]/70">
@@ -55,6 +51,18 @@ export function Agrements() {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-6 pt-6 border-t border-[#E0E0E0]/70 flex flex-col items-center gap-3">
+              <Image
+                src="/images/logo-prefet-occitanie.jpg"
+                alt="Préfet de la région Occitanie"
+                width={80}
+                height={74}
+                className="h-[70px] w-auto"
+              />
+              <p className="text-[0.7rem] text-[#6B6B6B] text-center">
+                Agrément délivré par le Préfet de la région Occitanie
+              </p>
             </div>
           </div>
         </motion.div>

@@ -14,17 +14,17 @@ export function Footer() {
               Adresse
             </p>
             <p className="text-foreground font-medium leading-relaxed">
-              {"34 R\u00e9sidence Lanclos"}
+              34 Résidence Lanclos
             </p>
             <p className="text-foreground font-medium">
-              {"31380 Montastruc-la-Conseill\u00e8re"}
+              31380 Montastruc-la-Conseillère
             </p>
             <div className="mt-4 space-y-1.5">
               <Link href="tel:+33611392830" className="block text-sm text-muted-foreground hover:text-[#78B42B] transition-colors">
                 06 11 39 28 30
               </Link>
-              <Link href="mailto:contact@co-form.fr" className="block text-sm text-muted-foreground hover:text-[#78B42B] transition-colors">
-                contact@co-form.fr
+              <Link href="mailto:contactcoform@gmail.com" className="block text-sm text-muted-foreground hover:text-[#78B42B] transition-colors">
+                contactcoform@gmail.com
               </Link>
             </div>
           </div>
@@ -38,10 +38,10 @@ export function Footer() {
               Lundi &ndash; Vendredi
             </p>
             <p className="text-2xl font-serif text-foreground mt-2">
-              09h &ndash; 18h
+              9h &ndash; 12h / 14h &ndash; 18h
             </p>
             <p className="text-sm text-muted-foreground mt-3">
-              {"Ferm\u00e9 le week-end et les jours f\u00e9ri\u00e9s"}
+              Fermé le week-end et les jours fériés
             </p>
           </div>
 
@@ -51,10 +51,10 @@ export function Footer() {
               Suivez-nous
             </p>
             <p className="text-sm text-muted-foreground mb-6">
-              {"Retrouvez l\u2019actualit\u00e9 juridique et nos conseils CSE sur LinkedIn."}
+              Retrouvez l&apos;actualité juridique et nos conseils CSE sur LinkedIn.
             </p>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/co-form"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#B5345A] text-white hover:bg-[#B5345A]/90 transition-all duration-300 shadow-md shadow-[#B5345A]/15 self-start"
@@ -80,13 +80,13 @@ export function Footer() {
             />
           </Link>
           <p className="text-xs text-muted-foreground text-center">
-            {"SIRET 798 064 150 00013 | Organisme de formation n\u00b073310792831 | Agr\u00e9ment DREETS Occitanie"}
+            SIRET 798 064 150 00013 | Organisme de formation n°73310792831 | Agrément DREETS Occitanie
           </p>
           <div className="flex items-center gap-5">
-            <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              {"Mentions l\u00e9gales"}
+            <Link href="/mentions-legales" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Mentions légales
             </Link>
-            <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/cgv" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               CGV
             </Link>
           </div>

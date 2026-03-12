@@ -1,7 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Download, Users, MessageSquare, Scale, Clock, Euro, MapPin, CheckCircle2, BookOpen, Calculator, FileText, Leaf } from "lucide-react"
+import { Download, Users, MessageSquare, Scale, Clock, Euro, CheckCircle2, BookOpen, FileText, Leaf, CalendarDays } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -9,93 +10,114 @@ import { useState } from "react"
 const formationsCSE = [
   {
     id: "cse-missions",
-    title: "Règles de fonctionnement et missions du CSE",
+    title: "Maîtriser les Missions du CSE dans une entreprise de + de 50 salariés",
     description: "Comprendre et appréhender les missions du CSE. Intégrer les évolutions des règles en matière de négociation collective et maîtriser les attributions du Comité Social Économique.",
     objectives: [
-      "Intégrer les évolutions des règles en matière de négociation collective et de ruptures de contrat",
-      "Appréhender les enjeux pour négocier efficacement un protocole d'accord préélectoral",
-      "Adapter vos pratiques de fonctionnement et élaborer un règlement intérieur adapté",
-      "Comprendre l'impact de l'ordonnance du 22 septembre 2017 sur les IRP",
-      "Maîtriser les attributions du CSE"
+      "Adapter vos pratiques de fonctionnement grâce à un règlement intérieur du CSE modifié",
+      "Rédiger un ordre du jour d\u2019une réunion et savoir ce que contient les procès-verbaux des séances",
+      "Gérer les budgets de fonctionnement et des activités sociales",
+      "Utiliser vos heures de délégation pour vous organiser et être efficace",
+      "Comprendre les missions professionnelles et économiques du CSE pour donner un avis motivé lors des consultations"
     ],
     content: [
       "Les informations environnementales intégrées dans la BDESE",
-      "Les différentes missions du CSE et les droits d'alerte associés",
+      "Les différentes missions du CSE et les droits d\u2019alerte associés",
       "La commission santé sécurité et conditions de travail",
-      "L'organisation de l'instance représentative et ses moyens",
+      "L\u2019organisation de l\u2019instance représentative et ses moyens",
       "La nécessité de négocier un protocole préélectoral"
     ],
-    duration: "2 ou 3 jours (intra) / 2 jours (inter)",
-    public: "Membres du CSE : débutants ou confirmés, représentants syndicaux non élus",
-    prerequis: "Aucun pré-requis"
+    duration: "2-3 jours",
+    public: "Élus CSE",
+    prerequis: "Aucun pré-requis",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: "/pdfs/programme-missions-cse.pdf",
+    sessionInter: "Mardi 26 mai et jeudi 28 mai 2026"
   },
   {
     id: "cse-secretaire",
-    title: "Formation du Secrétaire du CSE",
-    description: "Devenir un secrétaire émérite du Comité Social et Économique. Maîtriser les missions clés, les droits et responsabilités, et être pleinement opérationnel lors des réunions.",
+    title: "Devenir un Secrétaire du CSE Efficace",
+    description: "Maîtriser les missions clés du secrétaire du Comité Social et Économique, ses droits et responsabilités, et être pleinement opérationnel lors des réunions.",
     objectives: [
-      "Maîtriser les missions clés inhérentes à la fonction de secrétaire",
-      "Comprendre les droits et responsabilités du secrétaire",
-      "Être pleinement opérationnel lors des réunions préparatoires et plénières",
-      "Gérer efficacement les tâches et les moyens associés au rôle",
-      "Animer l'équipe du comité et coordonner les actions des commissions",
-      "Planifier des actions constructives et anticiper les stratégies"
+      "Connaître les missions du poste de secrétaire du CSE et celles du secrétaire adjoint",
+      "Construire un ordre du jour adapté",
+      "Rédiger des procès-verbaux conformes et exploitables",
+      "Animer « l\u2019équipe » de votre CSE et coordonner l\u2019action des commissions",
+      "Piloter le calendrier du CSE"
     ],
     content: [
-      "L'élection du secrétaire du CSE et sa révocation",
+      "L\u2019élection du secrétaire du CSE et sa révocation",
       "Le mandat et le statut protecteur attaché à cette fonction",
       "Les responsabilités et les missions du secrétaire",
-      "La gestion administrative et l'animation des réunions",
+      "La gestion administrative et l\u2019animation des réunions",
       "La stratégie du CSE et les interlocuteurs",
       "Le suivi des décisions et la politique de communication"
     ],
     duration: "1 journée",
-    public: "Secrétaires ou secrétaires adjoints du CSE, débutants ou confirmés",
-    prerequis: "Aucun pré-requis"
+    public: "Secrétaires CSE",
+    prerequis: "Aucun pré-requis",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: "/pdfs/programme-secretaire-cse.pdf",
+    sessionInter: "Mardi 19 mai 2026"
   },
   {
     id: "cse-tresorier",
-    title: "Formation du Trésorier du CSE",
-    description: "Devenir un trésorier efficace et jouer un rôle clé dans la vie de votre société. Maîtriser la gestion des budgets et les obligations comptables du CSE.",
+    title: "Devenir un Trésorier Expert",
+    description: "Devenir un trésorier efficace et jouer un rôle clé dans la vie de votre CSE. Maîtriser la gestion des budgets et les obligations comptables.",
     objectives: [
-      "Maîtriser votre rôle et comprendre vos droits et responsabilités",
-      "Être opérationnel dans la gestion des deux budgets du CSE",
-      "Savoir établir les documents comptables essentiels",
-      "Comprendre et appliquer les règles de l'URSSAF",
-      "Rédiger un compte rendu annuel de fin de mandat complet"
+      "Connaître le rôle du trésorier du CSE et ses droits et responsabilités",
+      "Être opérationnel pour gérer les deux budgets à partir d\u2019outils pertinents",
+      "Savoir établir et suivre un budget prévisionnel",
+      "Être capable d\u2019établir les documents annuels du CSE",
+      "Appréhender les règles de l\u2019URSSAF pour les activités sociales et culturelles",
+      "Savoir rédiger le compte annuel de fin de mandat"
     ],
     content: [
       "Le rôle et les responsabilités du trésorier",
-      "La gestion des deux budgets du CSE",
+      "La gestion des deux budgets du CSE et les règles URSSAF",
       "Les comptes annuels, état du patrimoine et rapport de gestion",
-      "Les règles URSSAF pour les activités culturelles",
-      "Le compte rendu annuel de fin de mandat"
+      "Les documents à établir selon les modèles de l\u2019Autorité des normes comptables",
+      "Le compte rendu de fin de mandat"
     ],
     duration: "1 journée",
-    public: "Trésoriers ou trésoriers adjoints du CSE, membres de commission ASC",
-    prerequis: "Aucun pré-requis"
+    public: "Trésoriers ou trésoriers adjoints du CSE",
+    prerequis: "Formation initiale sur le fonctionnement du CSE",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: "/pdfs/programme-tresorier-cse.pdf",
+    sessionInter: null
   },
   {
     id: "cse-comptes",
-    title: "Comprendre les comptes de l'entreprise",
-    description: "Acquérir une maîtrise des documents comptables pour émettre un avis éclairé lors des consultations du CSE sur la situation économique et financière de l'entreprise.",
+    title: "Analyser les Comptes de l\u2019Entreprise",
+    description: "Acquérir une maîtrise des documents comptables pour émettre un avis éclairé lors des consultations du CSE sur la situation économique et financière de l\u2019entreprise.",
     objectives: [
       "Sensibilisation aux notions financières et comptables",
       "Acquérir une maîtrise des documents comptables : lire, comprendre, interpréter",
       "Identifier les indicateurs de performance économique",
-      "Évaluer l'état d'endettement et la santé financière de l'entreprise",
+      "Évaluer l\u2019état d\u2019endettement et la santé financière de l\u2019entreprise",
       "Poser des questions pertinentes en réunion plénière"
     ],
     content: [
-      "Les bases de la comptabilité d'entreprise",
+      "Les bases de la comptabilité d\u2019entreprise",
       "Lecture et interprétation des documents comptables",
       "Les indicateurs de performance économique",
-      "L'analyse de l'endettement",
+      "L\u2019analyse de l\u2019endettement",
       "Consultation sur la situation économique et financière"
     ],
     duration: "2 jours (consécutifs ou non)",
     public: "Membres du CSE",
-    prerequis: "Aucun pré-requis"
+    prerequis: "Aucun pré-requis",
+    pricing: null,
+    programmeUrl: null,
+    sessionInter: null
   }
 ]
 
@@ -103,25 +125,31 @@ const formationsCSE = [
 const formationsCommunication = [
   {
     id: "comm-politique",
-    title: "Circulation de l'information au CSE",
+    title: "Circulation de l\u2019information au CSE",
     description: "Mettre en place une politique de communication structurée et efficace au sein de votre CSE. Développer une communication impactante avec les salariés.",
     objectives: [
       "Maîtriser les différents modes et supports de communication",
       "Développer une communication efficace et impactante",
-      "Mettre en place une politique structurée de transmission de l'information",
+      "Mettre en place une politique structurée de transmission de l\u2019information",
       "Apprendre à concevoir des outils de communication (flashs, newsletters)",
       "Acquérir les connaissances pour mener des enquêtes auprès des salariés"
     ],
     content: [
       "Les modes et supports de communication (écrits, oraux, directs, indirects)",
-      "Le processus de mise en œuvre de la transmission de l'information",
+      "Le processus de mise en \u0153uvre de la transmission de l\u2019information",
       "De la décision en réunion préparatoire à sa validation en réunion plénière",
       "La politique de communication du CSE",
-      "L'évaluation et le réajustement des actions de communication"
+      "L\u2019évaluation et le réajustement des actions de communication"
     ],
     duration: "1 journée",
     public: "Élus débutants ou confirmés chargés de la communication et des activités culturelles",
-    prerequis: "Aucun pré-requis"
+    prerequis: "Aucun pré-requis",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: null,
+    sessionInter: null
   },
   {
     id: "comm-reglement",
@@ -143,7 +171,13 @@ const formationsCommunication = [
     ],
     duration: "1 journée",
     public: "Secrétaires, trésoriers, membres de commission ASC",
-    prerequis: "Aucun pré-requis"
+    prerequis: "Aucun pré-requis",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: null,
+    sessionInter: null
   }
 ]
 
@@ -152,25 +186,88 @@ const formationsDroitSocial = [
   {
     id: "droit-climat",
     title: "Loi Climat et Résilience (22 août 2021)",
-    description: "Comprendre l'impact de la loi 'Climat et Résilience' sur les missions du CSE. Connaître l'obligation d'information et de consultation sur l'impact écologique.",
+    description: "Comprendre l\u2019impact de la loi \u2018Climat et Résilience\u2019 sur les missions du CSE. Connaître l\u2019obligation d\u2019information et de consultation sur l\u2019impact écologique.",
     objectives: [
-      "Comprendre les évolutions introduites par la loi 'Climat et Résilience'",
-      "Connaître l'obligation d'information et de consultation du CSE sur l'impact écologique",
-      "Maîtriser les effets environnementaux des décisions de l'employeur",
-      "Découvrir l'enrichissement de la BDESE",
+      "Comprendre les évolutions introduites par la loi \u2018Climat et Résilience\u2019",
+      "Connaître l\u2019obligation d\u2019information et de consultation du CSE sur l\u2019impact écologique",
+      "Maîtriser les effets environnementaux des décisions de l\u2019employeur",
+      "Découvrir l\u2019enrichissement de la BDESE",
       "Apprendre à formaliser les initiatives environnementales"
     ],
     content: [
-      "Présentation de la loi 'Climat et Résilience' et ses mesures phares",
+      "Présentation de la loi \u2018Climat et Résilience\u2019 et ses mesures phares",
       "Impact sur les missions du CSE",
-      "L'enrichissement de la BDESE (données environnementales)",
-      "La nouvelle consultation obligatoire sur l'impact environnemental",
-      "Le rôle élargi de l'expert-comptable",
+      "L\u2019enrichissement de la BDESE (données environnementales)",
+      "La nouvelle consultation obligatoire sur l\u2019impact environnemental",
+      "Le rôle élargi de l\u2019expert-comptable",
       "Actions concrètes pour le CSE"
     ],
     duration: "1 journée",
     public: "Membres titulaires et suppléants du CSE",
-    prerequis: "Aucun pré-requis"
+    prerequis: "Aucun pré-requis",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: null,
+    sessionInter: null
+  },
+  {
+    id: "droit-actualites",
+    title: "Actualités Sociales",
+    description: "Faire le point sur les dernières évolutions législatives et jurisprudentielles en droit social impactant le fonctionnement du CSE et les relations de travail.",
+    objectives: [
+      "Maîtriser les dernières réformes du droit du travail",
+      "Comprendre les évolutions jurisprudentielles récentes",
+      "Anticiper les impacts sur le fonctionnement du CSE",
+      "Adapter les pratiques du CSE aux nouvelles obligations",
+      "Échanger sur les problématiques terrain"
+    ],
+    content: [
+      "Les réformes législatives récentes en droit social",
+      "La jurisprudence marquante de l\u2019année",
+      "Les évolutions en matière de santé et sécurité au travail",
+      "Les nouveautés relatives au CSE et à ses missions",
+      "Questions/réponses et cas pratiques"
+    ],
+    duration: "1 journée",
+    public: "Membres du CSE, délégués syndicaux",
+    prerequis: "Connaissances de base en droit social",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: null,
+    sessionInter: "Jeudi 23 avril 2026"
+  },
+  {
+    id: "droit-harcelement",
+    title: "Référent Harcèlement Sexuel et Agissements Sexistes",
+    description: "Former le référent harcèlement sexuel du CSE à ses missions. Connaître le cadre juridique, savoir identifier les situations et mettre en place des actions de prévention.",
+    objectives: [
+      "Connaître le cadre juridique du harcèlement sexuel et des agissements sexistes",
+      "Comprendre le rôle et les missions du référent harcèlement du CSE",
+      "Savoir identifier les situations de harcèlement sexuel",
+      "Mettre en place des actions de prévention efficaces",
+      "Accompagner les victimes et orienter vers les bons interlocuteurs"
+    ],
+    content: [
+      "Définitions légales : harcèlement sexuel, agissements sexistes",
+      "Le cadre juridique et les obligations de l\u2019employeur",
+      "Le rôle du référent harcèlement du CSE (loi du 5 septembre 2018)",
+      "Identifier et caractériser les situations",
+      "La procédure d\u2019alerte et d\u2019enquête",
+      "Les mesures de prévention à mettre en place"
+    ],
+    duration: "1 journée",
+    public: "Référents harcèlement CSE, membres du CSE",
+    prerequis: "Aucun pré-requis",
+    pricing: {
+      inter: "400 € par participant et par jour",
+      intra: "Prix établi sur devis après étude de vos attentes"
+    },
+    programmeUrl: null,
+    sessionInter: "Mardi 16 juin 2026"
   }
 ]
 
@@ -196,33 +293,65 @@ export function FormationsContent() {
       </div>
 
       {/* Header section */}
-      <section className="relative py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+        {/* Image de fond */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/formations-header.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-[0.07]"
+            sizes="100vw"
+            priority
+            aria-hidden="true"
+          />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg mb-8">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-sm font-medium text-foreground">Organisme agréé DREETS</span>
             </div>
-            
+
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6 text-balance">
               Nos Formations
             </h1>
-            
+
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-              Des formations sur mesure pour les membres du CSE, dispensées par des formateurs experts 
+              Des formations sur mesure pour les membres du CSE, dispensées par des formateurs experts
               en droit social et relations professionnelles.
             </p>
+          </div>
+        </div>
+      </section>
 
-            {/* Pricing badge */}
-            <div className="inline-flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl">
-              <div className="flex items-center gap-2">
-                <Euro className="h-5 w-5 text-primary" />
-                <span className="text-2xl font-bold text-foreground">400€</span>
-                <span className="text-muted-foreground">/jour/participant</span>
-              </div>
-              <div className="w-px h-8 bg-border" />
-              <span className="text-sm text-muted-foreground">Tarif inter-entreprises</span>
+      {/* Prochaines sessions inter-entreprises */}
+      <section className="relative pb-12">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="rounded-2xl bg-white/70 backdrop-blur-xl border border-white/40 shadow-lg p-6 lg:p-8">
+            <h2 className="flex items-center gap-3 font-serif text-xl font-medium text-foreground mb-6">
+              <CalendarDays className="h-5 w-5 text-accent" />
+              Prochaines sessions inter-entreprises
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { date: "Jeudi 23 avril 2026", formation: "Actualités Sociales" },
+                { date: "Mardi 19 mai 2026", formation: "Secrétaire du CSE" },
+                { date: "Mardi 26 & jeudi 28 mai 2026", formation: "Missions du CSE (+50 salariés)" },
+                { date: "Mardi 16 juin 2026", formation: "Référent Harcèlement Sexuel" },
+              ].map((session, i) => (
+                <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-secondary/50">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{session.date}</p>
+                    <p className="text-sm text-muted-foreground">{session.formation}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+            <p className="text-xs text-muted-foreground mt-4">
+              Tarif inter-entreprise : 400 € par participant et par jour — Inscriptions ouvertes, places limitées.
+            </p>
           </div>
         </div>
       </section>
@@ -240,8 +369,8 @@ export function FormationsContent() {
                   onClick={() => setActiveCategory(category.id)}
                   className={`
                     flex items-center gap-2 px-6 py-3 rounded-2xl font-medium transition-all duration-300
-                    ${isActive 
-                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30" 
+                    ${isActive
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
                       : "bg-white/60 backdrop-blur-xl border border-white/40 text-foreground hover:bg-white/80"
                     }
                   `}
@@ -275,12 +404,22 @@ export function FormationsContent() {
                   <div className="absolute top-6 right-6 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
                     <span className="text-xl font-bold text-primary">{index + 1}</span>
                   </div>
-                  
+
                   <div className="p-8 lg:p-10">
                     {/* Title */}
                     <h2 className="font-serif text-2xl lg:text-3xl font-medium text-foreground mb-4 pr-16">
                       {formation.title}
                     </h2>
+
+                    {/* Session inter-entreprise */}
+                    {formation.sessionInter && (
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent/10 border border-accent/20 mb-4">
+                        <CalendarDays className="h-4 w-4 text-accent" />
+                        <span className="text-sm font-medium text-foreground">
+                          Prochaine session inter-entreprise : {formation.sessionInter}
+                        </span>
+                      </div>
+                    )}
 
                     {/* Description */}
                     <p className="text-muted-foreground leading-relaxed text-lg mb-8 max-w-4xl">
@@ -292,7 +431,7 @@ export function FormationsContent() {
                       <div>
                         <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
                           <CheckCircle2 className="h-4 w-4 text-primary" />
-                          Objectifs de la formation
+                          Ce que vous allez apprendre à
                         </h3>
                         <ul className="space-y-3">
                           {formation.objectives.map((objective, i) => (
@@ -342,24 +481,35 @@ export function FormationsContent() {
 
                       {/* Price and CTAs */}
                       <div className="flex flex-wrap items-center justify-between gap-4">
-                        <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-primary/5 border border-primary/10">
-                          <Euro className="h-5 w-5 text-primary" />
-                          <span className="font-bold text-foreground">400€ / jour / participant</span>
-                          <span className="text-sm text-muted-foreground">(inter-entreprises)</span>
-                        </div>
+                        {formation.pricing ? (
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-primary/5 border border-primary/10">
+                              <Euro className="h-4 w-4 text-primary" />
+                              <span className="text-sm text-foreground">Inter-entreprise : {formation.pricing.inter}</span>
+                            </div>
+                            <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-accent/5 border border-accent/10">
+                              <Euro className="h-5 w-5 text-accent" />
+                              <span className="text-sm text-muted-foreground">Intra-entreprise : {formation.pricing.intra}</span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div />
+                        )}
 
                         <div className="flex gap-3">
-                          <Button 
-                            asChild
-                            className="rounded-xl bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20"
-                          >
-                            <Link href="#">
-                              <Download className="h-4 w-4 mr-2" />
-                              Programme PDF
-                            </Link>
-                          </Button>
-                          
-                          <Button 
+                          {formation.programmeUrl && (
+                            <Button
+                              asChild
+                              className="rounded-xl bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20"
+                            >
+                              <a href={formation.programmeUrl} target="_blank" rel="noopener noreferrer" download>
+                                <Download className="h-4 w-4 mr-2" />
+                                Programme PDF
+                              </a>
+                            </Button>
+                          )}
+
+                          <Button
                             asChild
                             variant="outline"
                             className="rounded-xl border-primary/30 hover:bg-primary/5 bg-transparent"
@@ -386,17 +536,17 @@ export function FormationsContent() {
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl" />
-            
+
             <div className="relative text-center">
               <h2 className="font-serif text-2xl lg:text-3xl font-medium text-white mb-4">
                 Besoin d&apos;une formation sur mesure ?
               </h2>
               <p className="text-white/80 mb-8 max-w-xl mx-auto">
-                Nous adaptons nos programmes à vos besoins spécifiques. 
+                Nous adaptons nos programmes à vos besoins spécifiques.
                 Contactez-nous pour un devis personnalisé en intra-entreprise.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
+                <Button
                   asChild
                   size="lg"
                   className="rounded-xl bg-white text-primary hover:bg-white/90 shadow-lg h-12 px-8"
@@ -405,13 +555,13 @@ export function FormationsContent() {
                     Nous appeler
                   </Link>
                 </Button>
-                <Button 
+                <Button
                   asChild
                   size="lg"
                   variant="outline"
                   className="rounded-xl border-white/30 text-white hover:bg-white/10 h-12 px-8 bg-transparent"
                 >
-                  <Link href="mailto:contact@co-form.fr">
+                  <Link href="mailto:contactcoform@gmail.com">
                     Envoyer un email
                   </Link>
                 </Button>

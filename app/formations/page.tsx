@@ -11,7 +11,7 @@ export default function FormationsPage() {
   return (
     <>
       <Header />
-      <main className="pt-24">
+      <main>
         <FormationsContent />
       </main>
       <Footer />

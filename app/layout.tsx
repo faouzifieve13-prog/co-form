@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter, DM_Serif_Display, DM_Sans } from 'next/font/google'
+import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -16,17 +16,6 @@ const inter = Inter({
   display: 'swap'
 });
 
-const dmSans = DM_Sans({ 
-  subsets: ["latin"],
-  variable: '--font-sans',
-  display: 'swap'
-});
-
-const dmSerif = DM_Serif_Display({ 
-  subsets: ["latin"],
-  variable: '--font-serif',
-  display: 'swap'
-});
 
 export const metadata: Metadata = {
   title: 'CO\'FORM - Centre de Formation CSE Agréé | Toulouse',

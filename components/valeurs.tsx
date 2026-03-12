@@ -1,31 +1,35 @@
 "use client"
 
 import Link from "next/link"
-import { Sparkles, Scale, MapPin } from "lucide-react"
+import Image from "next/image"
+import { FileSignature, Scale, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
 const valeurs = [
   {
-    icon: Sparkles,
+    icon: FileSignature,
     title: "Une offre de formation sur-mesure",
     description:
-      "Bien plus qu\u2019un catalogue standard, nous co-construisons vos sessions pour r\u00e9pondre aux enjeux r\u00e9els de votre entreprise.",
+      "Nous co-construisons le programme de vos sessions pour répondre à vos besoins et au contexte de votre entreprise.",
     glowColor: "#78B42B",
+    bgColor: "bg-[#78B42B]/[0.06]",
   },
   {
     icon: Scale,
     title: "Expertise de terrain",
     description:
-      "Des formateurs praticiens du droit qui transforment la complexit\u00e9 juridique en outils op\u00e9rationnels et concrets.",
+      "Des formateurs, praticiens du droit qui mettent leurs compétences d\u2019expert à votre service. Ils vous apportent de la méthodologie et vous clarifient le droit du travail pour une mise en \u0153uvre simple et pratique.",
     glowColor: "#B5345A",
+    bgColor: "bg-[#B5345A]/[0.06]",
   },
   {
     icon: MapPin,
-    title: "Proximit\u00e9 & R\u00e9activit\u00e9",
+    title: "Proximité & Réactivité",
     description:
-      "Un accompagnement humain et local en r\u00e9gion Occitanie, depuis Montastruc-la-Conseill\u00e8re.",
+      "Un accompagnement humain et local en région Occitanie, près de Toulouse.",
     glowColor: "#4A4A4A",
+    bgColor: "bg-[#4A4A4A]/[0.06]",
   },
 ]
 
@@ -46,18 +50,34 @@ const iconAnimation = {
 
 export function Valeurs() {
   return (
-    <section className="py-14 lg:py-20 bg-secondary/60 relative">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section className="py-14 lg:py-20 bg-secondary/60 relative overflow-hidden">
+      {/* Image de fond subtile */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/valeurs-bg.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-[0.04]"
+          sizes="100vw"
+          aria-hidden="true"
+        />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
           {valeurs.map((valeur, index) => (
             <motion.div
               key={index}
-              className="relative p-7 rounded-2xl bg-card border border-border/50 group cursor-default overflow-hidden transition-all duration-300 hover:border-[#78B42B]/20 hover:shadow-[0_12px_40px_rgba(120,180,43,0.08)]"
+              className={`relative p-7 rounded-2xl ${valeur.bgColor} border border-border/50 group cursor-default overflow-hidden transition-all duration-300`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
+              whileHover={{
+                y: -6,
+                boxShadow: `0 12px 40px ${valeur.glowColor}14`,
+                borderColor: `${valeur.glowColor}33`,
+                transition: { duration: 0.3, ease: "easeOut" },
+              }}
             >
               {/* Glow orb */}
               <div

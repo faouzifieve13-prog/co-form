@@ -5,42 +5,29 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const questions = [
   {
-    question: "Le CSE est-il obligatoire pour ma structure\u00A0?",
+    question: "Le CSE est-il obligatoire pour mon entreprise\u00A0?",
     answer:
-      "D\u00e8s que vous atteignez 11 salari\u00e9s pendant 12 mois cons\u00e9cutifs. C\u2019est le socle de la repr\u00e9sentation du personnel.",
+      "Dès que l\u2019entreprise atteint 11 salariés (équivalent temps plein) pendant 12 mois consécutifs, l\u2019employeur doit organiser des élections du CSE (article L\u00A02311-2 du code du travail).",
   },
   {
-    question: "Quelles sont nos missions en entreprise de 50+\u00A0?",
+    question: "Quelles sont les missions du CSE dans une entreprise de plus de 50 salariés\u00A0?",
     answer:
-      "Vous devenez acteur de la strat\u00e9gie\u00A0: sant\u00e9 (SSCT), situation \u00e9conomique et gestion autonome de vos budgets.",
+      "Le CSE doit donner son avis sur la situation économique et financière de l\u2019entreprise ainsi que sur la politique sociale. Il a aussi des missions en matière de santé sécurité et conditions de travail. Il gère un budget pour faire bénéficier aux salariés d\u2019activités sociales (bons cadeaux à Noël, billetterie cinéma).",
   },
   {
-    question: "Peut-on partager nos heures de d\u00e9l\u00e9gation\u00A0?",
+    question: "Peut-on partager les heures de délégation\u00A0?",
     answer:
-      "Absolument. Les heures sont mutualisables entre titulaires et suppl\u00e9ants pour garantir la continuit\u00e9 de vos mandats.",
+      "Oui. Les heures sont cessibles entre titulaires et aux suppléants pour bien exercer leurs missions liées à leur mandat.",
   },
   {
-    question: "Quelle est la dur\u00e9e r\u00e9elle de notre mandat\u00A0?",
+    question: "Quelle est la durée du mandat\u00A0?",
     answer:
-      "Le mandat classique est de 4\u00A0ans. Un accord d\u2019entreprise peut le r\u00e9duire, mais jamais en dessous de 2\u00A0ans.",
-  },
-]
-
-const agrements = [
-  {
-    icon: ShieldCheck,
-    label: "DREETS Occitanie",
-    sublabel: "Agr\u00e9ment r\u00e9gional",
+      "Elle est de 4 ans mais peut être réduite par accord d\u2019entreprise pour une durée comprise entre 2 et 4 ans (articles L\u00A02314-32 et L\u00A02314-33 du code du travail).",
   },
   {
-    icon: Award,
-    label: "Qualiopi",
-    sublabel: "Certification qualit\u00e9",
-  },
-  {
-    icon: GraduationCap,
-    label: "Agr\u00e9ment Formation",
-    sublabel: "N\u00b073310792831",
+    question: "Quelles formations peuvent suivre les membres du CSE dans une entreprise de plus de 50 salariés\u00A0?",
+    answer:
+      "Les membres titulaires ont droit à 5 jours de formation économique (article L\u00A02315-63 du code du travail). Tous les membres du CSE peuvent suivre une session sur la santé sécurité et conditions de travail d\u2019une durée de 3 jours pour les élus dont le mandat a été renouvelé et de 5 jours pour les élus en 1er mandat (article L\u00A02315-18 du code du travail).",
   },
 ]
 
@@ -75,7 +62,7 @@ function FaqItem({
         onClick={() => setIsOpen(!isOpen)}
       >
         {/* Question row */}
-        <div className="flex items-center justify-between gap-6 px-8 py-5">
+        <div className="flex items-center justify-between gap-6 px-4 sm:px-6 lg:px-8 py-5">
           <span className="text-foreground font-medium text-[1.1rem] leading-snug">
             {item.question}
           </span>
@@ -114,7 +101,7 @@ function FaqItem({
               transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
               className="overflow-hidden"
             >
-              <div className="px-8 pb-7">
+              <div className="px-4 sm:px-6 lg:px-8 pb-7">
                 <div className="w-12 h-px bg-[#78B42B]/30 mb-4" />
                 <p className="text-[0.82rem] text-[#6B6B6B] leading-relaxed">
                   {item.answer}
@@ -141,10 +128,10 @@ export function Faq() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-sm text-[#78B42B] font-semibold tracking-wide uppercase mb-3">
-            Questions fr\u00e9quentes
+            Questions fréquentes
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight">
-            {"Le CSE en 1\u00A0minute"}
+            Le CSE en 1&nbsp;minute
           </h2>
         </motion.div>
 
@@ -154,8 +141,6 @@ export function Faq() {
             <FaqItem key={index} item={item} index={index} />
           ))}
         </div>
-
-
       </div>
     </section>
   )

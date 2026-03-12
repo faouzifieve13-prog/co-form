@@ -1,16 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-
-const sigles = [
-  { label: "CSE", size: 120, x: 8, y: 10, delay: 0, color: "#78B42B" },
-  { label: "SSCT", size: 100, x: 58, y: 2, delay: 0.5, color: "#B5345A" },
-  { label: "ASC", size: 90, x: 70, y: 55, delay: 1, color: "#4A4A4A" },
-  { label: "DROIT DU\nTRAVAIL", size: 140, x: 18, y: 50, delay: 1.5, color: "#78B42B" },
-  { label: "DREETS", size: 80, x: 52, y: 38, delay: 0.8, color: "#B5345A" },
-]
 
 function CirclePattern() {
   return (
@@ -48,9 +41,9 @@ export function Hero() {
       <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#B5345A]/[0.03] rounded-full blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8 w-full py-20 lg:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left - Text */}
-          <div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Texte */}
+          <div className="max-w-2xl mx-auto lg:mx-0">
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#78B42B]/10 border border-[#78B42B]/20 mb-5"
               initial={{ opacity: 0, y: 20 }}
@@ -59,7 +52,7 @@ export function Hero() {
             >
               <div className="w-2 h-2 rounded-full bg-[#78B42B] animate-pulse" />
               <span className="text-xs font-semibold text-[#78B42B] uppercase tracking-wider">
-                {"Organisme agr\u00e9\u00e9 DREETS"}
+                Organisme agréé DREETS
               </span>
             </motion.div>
 
@@ -69,7 +62,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              {"Le succ\u00e8s de votre CSE commence ici."}
+              Le succès de votre CSE commence ici.
             </motion.h1>
 
             <motion.p
@@ -78,7 +71,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {"Expertise juridique et formations agr\u00e9\u00e9es pour des \u00e9lus du personnel engag\u00e9s, experts et sereins."}
+              Conseil juridique et formations sur mesure pour des représentants du personnel plus expérimentés et efficaces.
             </motion.p>
 
             <motion.div
@@ -89,80 +82,38 @@ export function Hero() {
             >
               <Button
                 asChild
+                className="rounded-full bg-[#78B42B] text-white hover:bg-[#78B42B]/90 px-8 h-12 text-sm font-medium tracking-wide shadow-lg shadow-[#78B42B]/20"
+              >
+                <Link href="/formations">Découvrir nos formations</Link>
+              </Button>
+              <Button
+                asChild
                 className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 text-sm font-medium tracking-wide shadow-lg shadow-primary/20"
               >
                 <Link href="/#contact">Prendre rendez-vous</Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="rounded-full border-border text-foreground hover:bg-secondary px-8 h-12 text-sm tracking-wide bg-transparent"
-              >
-                <Link href="/formations">{"D\u00e9couvrir nos formations"}</Link>
-              </Button>
             </motion.div>
           </div>
 
-          {/* Right - Floating sigles cloud */}
-          <div className="relative h-[400px] lg:h-[480px] hidden lg:block">
-            {sigles.map((sigle, index) => (
-              <motion.div
-                key={sigle.label}
-                className="absolute cursor-default group"
-                style={{
-                  left: `${sigle.x}%`,
-                  top: `${sigle.y}%`,
-                  width: sigle.size,
-                  height: sigle.size,
-                }}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  y: [0, -14, 0],
-                }}
-                transition={{
-                  opacity: { duration: 0.5, delay: 0.5 + index * 0.12 },
-                  scale: { duration: 0.5, delay: 0.5 + index * 0.12, type: "spring", stiffness: 200 },
-                  y: {
-                    duration: 3 + index * 0.6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: sigle.delay,
-                  },
-                }}
-                whileHover={{
-                  scale: 1.2,
-                  y: -20,
-                  transition: { duration: 0.3, type: "spring", stiffness: 300 },
-                }}
-              >
-                <div
-                  className="w-full h-full rounded-full border-2 backdrop-blur-sm flex items-center justify-center transition-all duration-300 group-hover:shadow-xl"
-                  style={{
-                    backgroundColor: `${sigle.color}12`,
-                    borderColor: `${sigle.color}35`,
-                    boxShadow: `0 8px 32px ${sigle.color}10`,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `0 0 30px ${sigle.color}30, 0 8px 40px ${sigle.color}20`
-                    e.currentTarget.style.borderColor = `${sigle.color}60`
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = `0 8px 32px ${sigle.color}10`
-                    e.currentTarget.style.borderColor = `${sigle.color}35`
-                  }}
-                >
-                  <span
-                    className="text-sm font-bold text-center leading-tight whitespace-pre-line"
-                    style={{ color: sigle.color }}
-                  >
-                    {sigle.label}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {/* Image */}
+          <motion.div
+            className="hidden lg:block relative"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/hero-formation.jpg"
+                alt="Travail collaboratif sur documents de formation"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 0vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </div>
+          </motion.div>
         </div>
       </div>
 

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 const navigation = [
   { name: "Accueil", href: "/" },
@@ -57,15 +56,8 @@ export function Header() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="hidden lg:block">
-          <Button
-            asChild
-            className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-11 text-sm font-medium tracking-wide shadow-md shadow-primary/20 transition-all duration-300"
-          >
-            <Link href="/#contact">Prendre rendez-vous</Link>
-          </Button>
-        </div>
+        {/* Spacer for layout balance */}
+        <div className="hidden lg:block w-[140px]" />
 
         {/* Mobile menu button */}
         <button
@@ -96,14 +88,6 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 mt-4 border-t border-border">
-              <Button
-                asChild
-                className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-11"
-              >
-                <Link href="/#contact">Prendre rendez-vous</Link>
-              </Button>
-            </div>
           </div>
         </div>
       )}
