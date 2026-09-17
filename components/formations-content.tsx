@@ -34,7 +34,7 @@ const formationsCSE = [
       intra: "Prix établi sur devis après étude de vos attentes"
     },
     programmeUrl: "/pdfs/programme-missions-cse.pdf",
-    sessionInter: "Mardi 26 mai et jeudi 28 mai 2026"
+    sessionInter: "Jeudi 22 et vendredi 23 octobre 2026"
   },
   {
     id: "cse-secretaire",
@@ -63,7 +63,7 @@ const formationsCSE = [
       intra: "Prix établi sur devis après étude de vos attentes"
     },
     programmeUrl: "/pdfs/programme-secretaire-cse.pdf",
-    sessionInter: "Mardi 19 mai 2026"
+    sessionInter: "Mardi 17 novembre 2026"
   },
   {
     id: "cse-tresorier",
@@ -92,7 +92,7 @@ const formationsCSE = [
       intra: "Prix établi sur devis après étude de vos attentes"
     },
     programmeUrl: "/pdfs/programme-tresorier-cse.pdf",
-    sessionInter: null
+    sessionInter: "Mardi 1er décembre 2026"
   },
   {
     id: "cse-comptes",
@@ -238,7 +238,7 @@ const formationsDroitSocial = [
       intra: "Prix établi sur devis après étude de vos attentes"
     },
     programmeUrl: null,
-    sessionInter: "Jeudi 23 avril 2026"
+    sessionInter: null
   },
   {
     id: "droit-harcelement",
@@ -267,7 +267,7 @@ const formationsDroitSocial = [
       intra: "Prix établi sur devis après étude de vos attentes"
     },
     programmeUrl: null,
-    sessionInter: "Mardi 16 juin 2026"
+    sessionInter: "Jeudi 26 novembre 2026"
   }
 ]
 
