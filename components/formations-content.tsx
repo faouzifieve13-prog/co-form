@@ -335,10 +335,10 @@ export function FormationsContent() {
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {[
-                { date: "Jeudi 23 avril 2026", formation: "Actualités Sociales" },
-                { date: "Mardi 19 mai 2026", formation: "Secrétaire du CSE" },
-                { date: "Mardi 26 & jeudi 28 mai 2026", formation: "Missions du CSE (+50 salariés)" },
-                { date: "Mardi 16 juin 2026", formation: "Référent Harcèlement Sexuel" },
+                { date: "Jeudi 22 & vendredi 23 octobre 2026", formation: "Missions du CSE (+50 salariés)" },
+                { date: "Mardi 17 novembre 2026", formation: "Secrétaire du CSE" },
+                { date: "Jeudi 26 novembre 2026", formation: "Référent Harcèlement Sexuel" },
+                { date: "Mardi 1er décembre 2026", formation: "Trésorier du CSE" },
               ].map((session, i) => (
                 <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-secondary/50">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
